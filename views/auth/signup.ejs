@@ -1,0 +1,123 @@
+<%- include('../partials/head') %>
+  </head>
+  <body style="background-color: #f9fafb; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <%- include('../partials/nav') %>
+    <main style="max-width: 28rem; margin: 2rem auto; padding: 1rem;">
+      <div style="background-color: white; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); overflow: hidden;">
+        <div style="background-color: #ef4444; padding: 1.5rem 1.5rem;">
+          <h1 style="color: white; font-size: 1.5rem; font-weight: 700; margin: 0;">Create Your Account</h1>
+          <p style="color: #fee2e2; font-size: 0.875rem; margin-top: 0.25rem;">Join our community today</p>
+        </div>
+        <%- include('../partials/error') %>
+        <form action="/signup" method="POST" style="padding: 1.5rem;">
+          <div style="margin-bottom: 1rem;">
+            <label style="display: block; font-size: 0.875rem; font-weight: 500; color: #374151; margin-bottom: 0.25rem;">First Name</label>
+            <input
+              type="text"
+              name="firstName"
+              value="<%= oldInput.firstName ? oldInput.firstName : '' %>"
+              placeholder="John"
+              required
+              style="width: 100%; padding: 0.5rem 1rem; border: 1px solid #d1d5db; border-radius: 0.5rem; font-size: 0.875rem; outline: none; transition: all 0.2s;"
+              onfocus="this.style.borderColor='#ef4444'; this.style.boxShadow='0 0 0 2px rgba(239, 68, 68, 0.25)'"
+              onblur="this.style.borderColor='#d1d5db'; this.style.boxShadow='none'">
+          </div>
+          
+          <div style="margin-bottom: 1rem;">
+            <label style="display: block; font-size: 0.875rem; font-weight: 500; color: #374151; margin-bottom: 0.25rem;">Second Name</label>
+            <input
+              type="text"
+              name="secondName"
+              value="<%= oldInput.secondName ? oldInput.secondName : '' %>"
+              placeholder="Doe"
+              style="width: 100%; padding: 0.5rem 1rem; border: 1px solid #d1d5db; border-radius: 0.5rem; font-size: 0.875rem; outline: none; transition: all 0.2s;"
+              onfocus="this.style.borderColor='#ef4444'; this.style.boxShadow='0 0 0 2px rgba(239, 68, 68, 0.25)'"
+              onblur="this.style.borderColor='#d1d5db'; this.style.boxShadow='none'">
+          </div>
+          
+          <div style="margin-bottom: 1rem;">
+            <label style="display: block; font-size: 0.875rem; font-weight: 500; color: #374151; margin-bottom: 0.25rem;">Email</label>
+            <input
+              type="email"
+              name="email"
+              value="<%= oldInput.email ? oldInput.email : '' %>"
+              placeholder="john@example.com"
+              required
+              style="width: 100%; padding: 0.5rem 1rem; border: 1px solid #d1d5db; border-radius: 0.5rem; font-size: 0.875rem; outline: none; transition: all 0.2s;"
+              onfocus="this.style.borderColor='#ef4444'; this.style.boxShadow='0 0 0 2px rgba(239, 68, 68, 0.25)'"
+              onblur="this.style.borderColor='#d1d5db'; this.style.boxShadow='none'">
+          </div>
+          
+          <div style="margin-bottom: 1rem;">
+            <label style="display: block; font-size: 0.875rem; font-weight: 500; color: #374151; margin-bottom: 0.25rem;">Password</label>
+            <input
+              type="password"
+              name="password"
+              placeholder="••••••••"
+              required
+              style="width: 100%; padding: 0.5rem 1rem; border: 1px solid #d1d5db; border-radius: 0.5rem; font-size: 0.875rem; outline: none; transition: all 0.2s;"
+              onfocus="this.style.borderColor='#ef4444'; this.style.boxShadow='0 0 0 2px rgba(239, 68, 68, 0.25)'"
+              onblur="this.style.borderColor='#d1d5db'; this.style.boxShadow='none'">
+          </div>
+          
+          <div style="margin-bottom: 1rem;">
+            <label style="display: block; font-size: 0.875rem; font-weight: 500; color: #374151; margin-bottom: 0.25rem;">Confirm Password</label>
+            <input
+              type="password"
+              name="confirmPassword"
+              placeholder="••••••••"
+              required
+              style="width: 100%; padding: 0.5rem 1rem; border: 1px solid #d1d5db; border-radius: 0.5rem; font-size: 0.875rem; outline: none; transition: all 0.2s;"
+              onfocus="this.style.borderColor='#ef4444'; this.style.boxShadow='0 0 0 2px rgba(239, 68, 68, 0.25)'"
+              onblur="this.style.borderColor='#d1d5db'; this.style.boxShadow='none'">
+          </div>
+          
+          <div style="padding-top: 0.5rem;">
+            <p style="display: block; font-size: 0.875rem; font-weight: 500; color: #374151; margin-bottom: 0.5rem;">User Type</p>
+            <div style="display: flex; gap: 1.5rem;">
+              <label style="display: inline-flex; align-items: center;">
+                <input type="radio" name="userType" value="guest" checked="<%= oldInput.userType === "guest" %>" style="height: 1rem; width: 1rem; color: #dc2626; border-color: #d1d5db; margin-right: 0.5rem;">
+                <span style="color: #374151;">Guest</span>
+              </label>
+              <label style="display: inline-flex; align-items: center;">
+                <input type="radio" name="userType" value="host" checked="<%= oldInput.userType === "guest" %>" style="height: 1rem; width: 1rem; color: #dc2626; border-color: #d1d5db; margin-right: 0.5rem;">
+                <span style="color: #374151;">Host</span>
+              </label>
+            </div>
+          </div>
+          
+          <div style="display: flex; align-items: flex-start; padding-top: 0.5rem;">
+            <div style="display: flex; align-items: center; height: 1.25rem;">
+              <input
+                id="terms"
+                name="terms"
+                type="checkbox"
+                required
+                style="height: 1rem; width: 1rem; color: #dc2626; border-color: #d1d5db; border-radius: 0.25rem;">
+            </div>
+            <div style="margin-left: 0.75rem;">
+              <label for="terms" style="font-size: 0.875rem; color: #374151;">
+                I agree to the <a href="#" style="color: #dc2626; text-decoration: none;">Terms and Conditions</a>
+              </label>
+            </div>
+          </div>
+          
+          <button
+            type="submit"
+            style="width: 100%; margin-top: 1.5rem; background-color: #dc2626; color: white; font-weight: 500; padding: 0.5rem 1rem; border-radius: 0.5rem; border: none; cursor: pointer; transition: all 0.2s; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);"
+            onmouseover="this.style.backgroundColor='#b91c1c'; this.style.transform='scale(1.01)'"
+            onmouseout="this.style.backgroundColor='#dc2626'; this.style.transform='scale(1)'">
+            Create Account
+          </button>
+        </form>
+        
+        <div style="padding: 0 1.5rem 1.5rem; text-align: center;">
+          <p style="font-size: 0.875rem; color: #4b5563;">
+            Already have an account? 
+            <a href="/login" style="font-weight: 500; color: #dc2626; text-decoration: none;">Sign in</a>
+          </p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

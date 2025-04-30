@@ -1,0 +1,93 @@
+<header style="background-color: #ff385c; color: white; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100;">
+  <nav style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+    <ul style="display: flex; list-style: none; margin: 0; padding: 0; gap: 8px;">
+      <li>
+        <a
+          href="/"
+          style="display: block; padding: 8px 16px; border-radius: 4px; text-decoration: none; color: white; transition: all 0.3s ease; <%= currentPage === 'index' ? 'background-color: #e83535' : '' %>"
+          onmouseover="this.style.backgroundColor='#e83535'"
+          onmouseout="this.style.backgroundColor='<%= currentPage === 'index' ? '#e83535' : 'transparent' %>'"
+        >airbnb</a>
+      </li>
+      <% if(isLoggedIn) { %>
+        <% if(user && user.userType === 'guest') { %>
+          <li>
+            <a
+              href="/homes"
+              style="display: block; padding: 8px 16px; border-radius: 4px; text-decoration: none; color: white; transition: all 0.3s ease; <%= currentPage === 'Home' ? 'background-color: #e83535' : '' %>"
+              onmouseover="this.style.backgroundColor='#e83535'"
+              onmouseout="this.style.backgroundColor='<%= currentPage === 'Home' ? '#e83535' : 'transparent' %>'"
+            >Homes-List</a>
+          </li>
+          <li>
+            <a
+              href="/favourites"
+              style="display: block; padding: 8px 16px; border-radius: 4px; text-decoration: none; color: white; transition: all 0.3s ease; <%= currentPage === 'favourites' ? 'background-color: #e83535' : '' %>"
+              onmouseover="this.style.backgroundColor='#e83535'"
+              onmouseout="this.style.backgroundColor='<%= currentPage === 'favourites' ? '#e83535' : 'transparent' %>'"
+            >Favourites</a>
+          </li>
+          <li>
+            <a
+              href="/bookings"
+              style="display: block; padding: 8px 16px; border-radius: 4px; text-decoration: none; color: white; transition: all 0.3s ease; <%= currentPage === 'bookings' ? 'background-color: #e83535' : '' %>"
+              onmouseover="this.style.backgroundColor='#e83535'"
+              onmouseout="this.style.backgroundColor='<%= currentPage === 'bookings' ? '#e83535' : 'transparent' %>'"
+            >Bookings</a>
+          </li>
+        <% } else { %>
+          <li>
+            <a
+              href="/host/host-home-list"
+              style="display: block; padding: 8px 16px; border-radius: 4px; text-decoration: none; color: white; transition: all 0.3s ease; <%= currentPage === 'host-homes' ? 'background-color: #e83535' : '' %>"
+              onmouseover="this.style.backgroundColor='#e83535'"
+              onmouseout="this.style.backgroundColor='<%= currentPage === 'host-homes' ? '#e83535' : 'transparent' %>'"
+            >Host Homes</a>
+          </li>
+          <li>
+            <a
+              href="/host/add-home"
+              style="display: block; padding: 8px 16px; border-radius: 4px; text-decoration: none; color: white; transition: all 0.3s ease; <%= currentPage === 'addHome' ? 'background-color: #e83535' : '' %>"
+              onmouseover="this.style.backgroundColor='#e83535'"
+              onmouseout="this.style.backgroundColor='<%= currentPage === 'addHome' ? '#e83535' : 'transparent' %>'"
+            >Add Home</a>
+          </li>
+        <% } %>
+      <% } %>
+    </ul>
+    
+    <ul style="display: flex; list-style: none; margin: 0; padding: 0; gap: 8px;">
+      <% if(!isLoggedIn) { %>
+        <li>
+          <a
+            href="/signup"
+            style="display: block; padding: 8px 16px; border-radius: 4px; text-decoration: none; color: white; transition: all 0.3s ease; <%= currentPage === 'signup' ? 'background-color: #e83535' : '' %>"
+            onmouseover="this.style.backgroundColor='#e83535'"
+            onmouseout="this.style.backgroundColor='<%= currentPage === 'signup' ? '#e83535' : 'transparent' %>'"
+          >SignUp</a>
+        </li>
+        <li>
+          <a
+            href="/login"
+            style="display: block; padding: 8px 16px; border-radius: 4px; text-decoration: none; color: white; transition: all 0.3s ease; <%= currentPage === 'login' ? 'background-color: #e83535' : '' %>"
+            onmouseover="this.style.backgroundColor='#e83535'"
+            onmouseout="this.style.backgroundColor='<%= currentPage === 'login' ? '#e83535' : 'transparent' %>'"
+          >Login</a>
+        </li>
+      <% } else { %>
+        <li>
+          <form action="/logout" method="POST" style="margin: 0;">
+            <button 
+              type="submit"
+              style="background: none; border: none; cursor: pointer; display: block; padding: 8px 16px; border-radius: 4px; text-decoration: none; color: white; transition: all 0.3s ease;"
+              onmouseover="this.style.backgroundColor='#e83535'"
+              onmouseout="this.style.backgroundColor='transparent'"
+            >
+              Log Out
+            </button>
+          </form>
+        </li>
+      <% } %>
+    </ul>
+  </nav>
+</header>

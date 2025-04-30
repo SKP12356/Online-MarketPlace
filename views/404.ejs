@@ -1,0 +1,24 @@
+<%- include('partials/head') %>
+  </head>
+  <body style="margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; background-color: #f8f9fa; min-height: 100vh;">
+    <%- include('partials/nav') %>
+    <main style="max-width: 1200px; margin: 0 auto; padding: 40px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: calc(100vh - 160px);">
+      <h2 style="font-size: 120px; font-weight: 800; color: #ff3b30; margin: 0 0 20px 0; line-height: 1;">404</h2>
+      <p style="font-size: 28px; color: #333; margin: 0 0 40px 0; font-weight: 500;">Oops! Page Not Found</p>
+      <div style="display: flex; gap: 20px;">
+        <a
+          href="/"
+          style="background-color: #ff3b30; color: white; text-decoration: none; padding: 12px 32px; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"
+          onmouseover="this.style.backgroundColor='#e0352b'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 8px rgba(0, 0, 0, 0.15)'"
+          onmouseout="this.style.backgroundColor='#ff3b30'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)'"
+        >Go Back Home</a>
+        <a
+          href="javascript:history.back()"
+          style="background-color: white; color: #333; text-decoration: none; padding: 12px 32px; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; border: 1px solid #ddd; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);"
+          onmouseover="this.style.backgroundColor='#f1f1f1'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 8px rgba(0, 0, 0, 0.1)'"
+          onmouseout="this.style.backgroundColor='white'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.05)'"
+        >Previous Page</a>
+      </div>
+    </main>
+  </body>
+</html>

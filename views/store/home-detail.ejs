@@ -1,0 +1,69 @@
+<%- include('../partials/head') %>
+  </head>
+  <body style="margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, sans-serif; background-color: #f8f9fa;">
+    <%- include('../partials/nav') %>
+    <main style="max-width: 1200px; margin: 40px auto; padding: 0 20px;">
+      <div style="background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); padding: 40px;">
+        <h2 style="font-size: 32px; color: #ff385c; font-weight: 700; text-align: center; margin-bottom: 30px; position: relative;">
+          Details of <%= home.houseName %>
+          <span style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 120px; height: 4px; background: linear-gradient(90deg, #ff385c, #ff758c); border-radius: 2px;"></span>
+        </h2>
+        
+        <div style="display: grid; grid-template-columns: 1fr; gap: 30px;">
+          <!-- For larger screens, use media query to make it 2 columns -->
+          <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+            <img src="<%= home.photoUrl %>" alt="<%= home.name %>" style="width: 100%; height: 400px; object-fit: cover; display: block;">
+          </div>
+          
+          <div style="display: flex; flex-direction: column; gap: 24px;">
+            <div style="border-bottom: 1px solid #eee; padding-bottom: 20px;">
+              <h3 style="font-size: 24px; font-weight: 700; color: #333; margin-bottom: 12px;">Description</h3>
+              <p style="color: #555; line-height: 1.6; font-size: 16px;"><%= home.description %></p>
+            </div>
+
+            <div style="border-bottom: 1px solid #eee; padding-bottom: 20px;">
+              <h3 style="font-size: 24px; font-weight: 700; color: #333; margin-bottom: 12px;">Location</h3>
+              <div style="display: flex; align-items: center; color: #555;">
+                <svg style="width: 20px; height: 20px; margin-right: 10px; fill: #666;" viewBox="0 0 24 24">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <span style="font-size: 16px;"><%= home.location %></span>
+              </div>
+            </div>
+            
+            <div style="border-bottom: 1px solid #eee; padding-bottom: 20px;">
+              <h3 style="font-size: 24px; font-weight: 700; color: #333; margin-bottom: 12px;">Price</h3>
+              <p style="color: #ff385c; font-size: 22px; font-weight: 700;">$<%= home.price %> <span style="color: #777; font-size: 16px; font-weight: 400;">/ night</span></p>
+            </div>
+            
+            <div style="border-bottom: 1px solid #eee; padding-bottom: 20px;">
+              <h3 style="font-size: 24px; font-weight: 700; color: #333; margin-bottom: 12px;">Rating</h3>
+              <div style="display: flex; align-items: center;">
+                <div style="display: flex;">
+                  <% for(let i = 0; i < 5; i++) { %>
+                    <svg style="width: 24px; height: 24px; fill: <%= i < home.rating ? '#ffc107' : '#ddd' %>; margin-right: 2px;" viewBox="0 0 24 24">
+                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  <% } %>
+                </div>
+                <span style="margin-left: 8px; font-size: 18px; color: #555;"><%= home.rating %> / 5</span>
+              </div>
+            </div>
+
+            <div style="margin-top: 10px;">
+              <%- include('../partials/favourite') %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <style>
+      @media (min-width: 768px) {
+        main > div > div {
+          grid-template-columns: 1fr 1fr !important;
+        }
+      }
+    </style>
+  </body>
+</html>
